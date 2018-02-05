@@ -1190,6 +1190,11 @@ void  __attribute__((noreturn)) AppMain(void) {
 			RunMod();
 #endif
 
+#if defined (WITH_ISO14443a) && defined (WITH_HF_BOGRUN)
+			Dbprintf("Enabling ISO1443A Sniffing!");
+			SpinDelay(2000);
+			SniffIso14443a(0);
+#endif
 			// when here,  we are no longer in standalone mode.
 			// reseting the variables which keeps track of usb re-attached/configured
 			//SetUSBreconnect(0);
