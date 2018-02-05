@@ -638,7 +638,14 @@ void RAMFUNC SniffIso14443a(uint8_t param) {
 		Dbprintf("maxDataLen=%d, Uart.state=%x, Uart.len=%d", maxDataLen, Uart.state, Uart.len);
 		Dbprintf("traceLen=%d, Uart.output[0]=%08x", BigBuf_get_traceLen(), (uint32_t)Uart.output[0]);
 	}
+	
+#if defined (WITH_ISO14443a) && defined (WITH_HF_BOGRUN)
+	FpgaDisableSscDma();
+	set_tracing(false);
+	LEDsoff();
+#else
 	switch_off(); 
+#endif
 }
 
 //-----------------------------------------------------------------------------
