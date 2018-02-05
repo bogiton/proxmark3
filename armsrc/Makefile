@@ -23,12 +23,12 @@ APP_CFLAGS = -DWITH_CRC \
 			 -DWITH_ICLASS \
 			 -DWITH_FELICA \
 			 -DWITH_HFSNOOP \
-			 -DWITH_HF_YOUNG \
+			 -DWITH_EMV \
+			 -DWITH_HF_BOGRUN \
 			 -fno-strict-aliasing -ffunction-sections -fdata-sections
 
 ### IMPORTANT -  move the commented variable below this line
 #			 -DWITH_LCD \
-#			 -DWITH_EMV \
 #
 # Standalone Mods
 #-------------------------------------------------------
@@ -98,8 +98,8 @@ ARMSRC = fpgaloader.c \
 	$(SRC_FELICA) \
 	parity.c \
 	usb_cdc.c \
-	cmd.c \
-	hf_young.c
+	cmd.c
+	#	hf_young.c
 	#	lf_samyrun.c \
 	#	lf_hidbrute.c \
 	#	lf_proxbrute.c \
